@@ -1,6 +1,16 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
+const person = {
+  fullName: 'Luna Lovegood',
+  favoriteAnimals: 'thestrals',
+}
 
+function greetings (){
+  const hogwartsHouse = 'Ravenclaw';
+  return (`Hello! my name is ${person.fullName}, and I'm in ${hogwartsHouse}. I just love ${person.favoriteAnimals}, don't you?`);
+}
+
+console.log(greetings());
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
