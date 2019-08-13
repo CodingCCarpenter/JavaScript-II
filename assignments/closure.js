@@ -30,6 +30,8 @@ console.log(greetings());
    console.log(newCounter());
    console.log(newCounter()); 
    console.log(newCounter()); 
+   console.log(newCounter());
+   console.log(newCounter());
 
 // Example usage: const newCounter = counter();
 // newCounter(); // 1
@@ -40,25 +42,7 @@ const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
-  let count = {
-    counter: 0,
-    increment: function(){
-      this.counter += 1;
-    },
-    decrement: function(){
-      this.counter -= 1;
-    }
-  }
-  return count;
+  
 };
 
-const newCount = counterFactory();
-newCount.increment();
-newCount.decrement();
-newCount.increment();
-newCount.increment();
-newCount.increment();
-newCount.increment();
-newCount.decrement();
-newCount.decrement();
-newCount.decrement();
+
