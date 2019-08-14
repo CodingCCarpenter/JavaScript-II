@@ -62,16 +62,22 @@ console.log(multiplyNums(8,4));
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-  let trueFalse = list.includes(item);
-  return cb(trueFalse);
-}
+  return trueFalse = list.includes(item);
+  
+};
+console.log(contains('Gum', items));
 
 /* STRETCH PROBLEM */
+items.push('Gum');
+items.push('Pencil');
 
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
-  let noDoubles = [ ...new Set(array)];
-  return cb(noDoubles);
-}
+  return noDoubles = [ ...new Set(array)];
+};
+console.log(removeDuplicates(items));
+
+
+
