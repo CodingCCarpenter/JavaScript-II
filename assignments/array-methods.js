@@ -91,4 +91,25 @@ runners.forEach((runner) => emailList.push(runner.email));
 console.log(emailList);
 
 //Problem 2
+//Accounting wants to send everyone who donated over $100 a thank you letter. Provide a list of runners who donated over $100.
+
+let over100 = [];
+runners.forEach((runner) => {
+    if (runner.donation > 100) {
+        over100.push(runner);
+    }
+});
+console.log(over100);
 // Problem 3
+//Shirts and registration numbers cost the organizers of the 5k approximately $20. Since the entry fee to the race is whatever a runner decides to donate, marketing is curious how many people they lost money on this way. They would like this given as both number of people, as well as a percentage. 
+let under20 = [];
+runners.forEach((runner) => {
+    if(runner.donation < 20) {
+        under20.push(runner.id);
+    };
+    
+});
+
+console.log(under20.length + " runners");
+console.log(under20.length / runners.length * 100 + "% of runners")
+
