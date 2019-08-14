@@ -56,28 +56,60 @@ const runners = [{"id":1,"first_name":"Charmain","last_name":"Seiler","email":"c
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs.  Combine both the first and last names into a new array called fullName. 
 let fullName = [];
+runners.forEach((runner) => fullName.push(`${runner.first_name} ${runner.last_name}`));
 console.log(fullName);
 
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runner's first names converted to uppercase because the director BECAME DRUNK WITH POWER. Convert each first name into all caps and log the result
-let allCaps = [];
+let allCaps = runners.map((runner) =>  runner.first_name.toUpperCase());
+
 console.log(allCaps); 
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue.  Get a list of runners with large sized shirts so they can choose a different size. Return an array named largeShirts that contains information about the runners that have a shirt size of L and log the result
-let largeShirts = [];
+let largeShirts = runners.filter((runner) => runner.shirt_size == 'L');
+
 console.log(largeShirts);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations into a ticketPriceTotal array and log the result
-let ticketPriceTotal = [];
+let ticketPriceTotal = runners.reduce((total, runner) => {
+    return total += runner.donation;
+  }, 0);
+
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+//There is rain in the forecast for the day of the fun runners. The organizers need to send an email to every participant, letting them know that the run has be rescheduled. Return an array of every runner's email address.
 
-// Problem 2
+let emailList = [];
+runners.forEach((runner) => emailList.push(runner.email));
 
+console.log(emailList);
+
+//Problem 2
+//Accounting wants to send everyone who donated over $100 a thank you letter. Provide a list of runners who donated over $100.
+
+let over100 = [];
+runners.forEach((runner) => {
+    if (runner.donation > 100) {
+        over100.push(runner);
+    }
+});
+console.log(over100);
 // Problem 3
+//Shirts and registration numbers cost the organizers of the 5k approximately $20. Since the entry fee to the race is whatever a runner decides to donate, marketing is curious how many people they lost money on this way. They would like this given as both number of people, as well as a percentage. 
+let under20 = [];
+runners.forEach((runner) => {
+    if(runner.donation < 20) {
+        under20.push(runner.id);
+    };
+    
+});
+
+console.log(under20.length + " runners");
+console.log(under20.length / runners.length * 100 + "% of runners")
+
